@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import ReactFileReader from "react-file-reader";
 import Papa from "papaparse";
@@ -9,10 +9,6 @@ import "./styles.css";
 
 const App = () => {
   const [games, setGames] = useLocalStorage("games", []);
-
-  useEffect(() => {
-    console.log(JSON.stringify(games));
-  }, [games]);
 
   const handleFiles = files => {
     let reader = new FileReader();
