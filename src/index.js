@@ -27,11 +27,7 @@ const App = () => {
       <ReactFileReader handleFiles={handleFiles} fileTypes={".csv"}>
         <button>Upload</button>
       </ReactFileReader>
-      {localStorage.getItem("games") ? (
-        <h1>{localStorage.getItem("games")}</h1>
-      ) : (
-        <h1>Help</h1>
-      )}
+
       {games.length === 0 ? (
         <h1>Empty</h1>
       ) : (
