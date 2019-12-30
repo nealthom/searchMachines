@@ -29,7 +29,7 @@ const App = () => {
       ) : (
         <ul>
           {games.map(game => (
-            <li key={game["Mach #"]}>{game["Long Name"]}</li>
+            <li key={game["Mach #"]}>{game["Mach #"]}</li>
           ))}
         </ul>
       )}
