@@ -2,11 +2,11 @@ import React from "react";
 import ReactFileReader from "react-file-reader";
 import Papa from "papaparse";
 
-import Card from "./components/card/card.component";
+import CardList from "./components/card-list/card-list.component";
 
 import useLocalStorage from "./effects/use-localStorage.effect";
 
-import "./styles.css";
+import "./App.css";
 
 const App = () => {
   const [games, setGames] = useLocalStorage("games", []);
@@ -25,16 +25,7 @@ const App = () => {
       <ReactFileReader handleFiles={handleFiles} fileTypes={".csv"}>
         <button>Upload New List</button>
       </ReactFileReader>
-
-      {games.length === 0 ? (
-        <h1>Upload A List</h1>
-      ) : (
-        <ul>
-          {games.map(game => (
-            <Card game={game} />
-          ))}
-        </ul>
-      )}
+      <CardList games={games} />
     </div>
   );
 };
