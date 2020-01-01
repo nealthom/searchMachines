@@ -4,8 +4,8 @@ import "./card.styles.css";
 
 const Card = ({ game }) => (
   <div className="card-container">
-    <h2>{game["Long Name"]}</h2>
-    <p>{game["Location"]}</p>
+    <h2>{game["Location"]}</h2>
+    <p>{game["Long Name"]}</p>
   </div>
 );
 
