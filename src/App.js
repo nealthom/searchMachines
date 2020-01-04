@@ -15,11 +15,18 @@ const App = () => {
   const [filteredGames, setFilteredGames] = useState([])
 
   useEffect(()=>{
-    console.log(typeof games)
-// const filteredGames = games.filter(
-//     game =>
-//   game["Long Name"].toLowerCase().includes(searchField.toLowerCase()))
-  },[searchField])
+    console.log(searchField)
+const newGames = games.filter(
+    game =>{
+      if(game['Long Name'])
+        return game
+    //return game["Long Name"].toLowerCase().includes(searchField.toLowerCase()))
+    })
+  setFilteredGames(newGames.filter(game=> {
+    game['Long Name'].toLowerCase().includes(searchField.toLowerCase())
+  }))
+  
+  },[searchField,games])
 
   const handleFiles = files => {
     let reader = new FileReader();
@@ -31,7 +38,7 @@ const App = () => {
   };
 
   const onSearchChange = event =>{
-    setSearchField(event.target.value,console.log(searchField))
+    setSearchField(event.target.value)
     
 
   }
