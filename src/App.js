@@ -17,7 +17,15 @@ const App = () => {
   useEffect(() => {
     const newGames = games.filter(game => game.hasOwnProperty("Long Name"));
 
-    const removedDupes = [...new Set(newGames)];
+    const removedDupes = [];
+    const assetHash = {};
+
+    newGames.forEach(game => {
+      if (!assetHash[game["Mach #"]]) {
+        assetHash[game["Mach #"]] = 1;
+        removedDupes.push(game);
+      }
+    });
 
     setFilteredGames(
       removedDupes.filter(game =>
