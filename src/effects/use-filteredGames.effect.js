@@ -15,15 +15,20 @@ const useFilteredGames = (games, searchField) => {
         removedDupes.push(game);
       }
     });
-
+    // Fix filter
     setFilteredGames(
       removedDupes.filter(
         game =>
-          game["Long Name"].toLowerCase().includes(searchField.toLowerCase())
-        //  || game["Long Name"]
-        //   .toLowerCase()
-        //   .split(" ")
-        //   .includes(searchField.toLowerCase().split(" "))
+          game["Long Name"].toLowerCase().includes(searchField.toLowerCase()) ||
+          searchField
+            .toLowerCase()
+            .split(" ")
+            .forEach(word => {
+              game["Long Name"]
+                .toLowerCase()
+                .split(" ")
+                .includes(word);
+            })
       )
     );
   }, [searchField, games]);
