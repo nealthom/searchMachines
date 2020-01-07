@@ -17,8 +17,13 @@ const useFilteredGames = (games, searchField) => {
     });
 
     setFilteredGames(
-      removedDupes.filter(game =>
-        game["Long Name"].toLowerCase().includes(searchField.toLowerCase())
+      removedDupes.filter(
+        game =>
+          game["Long Name"].toLowerCase().includes(searchField.toLowerCase())
+        //  || game["Long Name"]
+        //   .toLowerCase()
+        //   .split(" ")
+        //   .includes(searchField.toLowerCase().split(" "))
       )
     );
   }, [searchField, games]);
