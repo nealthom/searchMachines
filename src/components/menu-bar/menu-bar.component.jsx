@@ -3,7 +3,7 @@ import ReactFileReader from "react-file-reader";
 import Papa from "papaparse";
 
 import SearchBox from "../search-box/search-box.component";
-
+// update Styling
 const MenuBar = ({ setGames, setSearchField }) => {
   const handleFiles = files => {
     let reader = new FileReader();
