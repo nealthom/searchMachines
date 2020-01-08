@@ -12,7 +12,7 @@ const useFilteredGames = (games, searchField) => {
     const gamesWithoutDuplicates = []; // container for games
     const assetHash = {}; // used to keep up with removing duplicates
 
-    // Remove duplicate entries, data has some duplicates
+    // Remove duplicate entries, data has some duplicates yay
     removedBlankGames.forEach(game => {
       if (!assetHash[game["Mach #"]]) {
         assetHash[game["Mach #"]] = 1;
