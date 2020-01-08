@@ -8,6 +8,7 @@ const useFilteredGames = (games, searchField) => {
 
     const removedDupes = [];
     const assetHash = {};
+    const foundHash = {};
 
     newGames.forEach(game => {
       if (!assetHash[game["Mach #"]]) {
@@ -20,15 +21,19 @@ const useFilteredGames = (games, searchField) => {
       removedDupes.filter(
         game =>
           game["Long Name"].toLowerCase().includes(searchField.toLowerCase()) ||
-          searchField
-            .toLowerCase()
-            .split(" ")
-            .forEach(word => {
-              game["Long Name"]
-                .toLowerCase()
-                .split(" ")
-                .includes(word);
-            })
+          game["Long Name"].toLowerCase().includes("double")
+        // searchField
+        //   .toLowerCase()
+        //   .split(" ")
+        //   .forEach(item => {
+        //     const hasit = game["Mach #"].split(" ").includes(item);
+        //     if (hasit) {
+        //       if (!foundHash[game["Mach #"]]) {
+        //         foundHash[game["Mach #"]] = 1;
+        //         return game;
+        //       }
+        //     }
+        //   })
       )
     );
   }, [searchField, games]);
