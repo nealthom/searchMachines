@@ -18,22 +18,27 @@ const useFilteredGames = (games, searchField) => {
     });
     // Fix filter
     setFilteredGames(
-      removedDupes.filter(
-        game =>
-          game["Long Name"].toLowerCase().includes(searchField.toLowerCase()) ||
-          game["Long Name"].toLowerCase().includes("double")
-        // searchField
-        //   .toLowerCase()
-        //   .split(" ")
-        //   .forEach(item => {
-        //     const hasit = game["Mach #"].split(" ").includes(item);
-        //     if (hasit) {
-        //       if (!foundHash[game["Mach #"]]) {
-        //         foundHash[game["Mach #"]] = 1;
-        //         return game;
-        //       }
-        //     }
-        //   })
+      removedDupes.filter(game =>
+        //  game["Long Name"].toLowerCase().includes(searchField.toLowerCase())
+        // ||
+        {
+          const test = searchField
+            .toLowerCase()
+            .split(" ")
+            .forEach(item => {
+              const hasit = game["Long Name"].split(" ").includes(item);
+              console.log(game["Long Name"].split(" ").includes("emerald"));
+              // if (!hasit) {
+              //   if (!foundHash[game["Mach #"]]) {
+              //     foundHash[game["Mach #"]] = 1;
+              //     return true;
+              //   }
+              // }
+              return hasit;
+            });
+          console.log(test);
+          return true;
+        }
       )
     );
   }, [searchField, games]);
