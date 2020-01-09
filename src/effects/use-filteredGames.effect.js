@@ -33,7 +33,7 @@ const useFilteredGames = (games, searchField) => {
         .split(" ")
         .forEach(item => {
           const hasit = game["Long Name"].split(" ").includes(item);
-          console.log(item);
+          console.log(hasit);
           if (hasit) {
             if (!foundHash[game["Mach #"]]) {
               foundHash[game["Mach #"]] = 1;
@@ -42,7 +42,7 @@ const useFilteredGames = (games, searchField) => {
           }
         });
     });
-    console.log(foundHash);
+    // console.log(foundHash);
     setFilteredGames(finalSetOfGames);
   }, [searchField, games]);
 
