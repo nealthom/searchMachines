@@ -9,7 +9,7 @@ import "./App.css";
 
 const App = () => {
   const [games, setGames] = useLocalStorage("games", []);
-  const [searchField, setSearchField] = useState("emerald 7");
+  const [searchField, setSearchField] = useState("emerald");
   const filteredGames = useFilteredGames(games, searchField);
 
   return (

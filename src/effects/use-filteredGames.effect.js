@@ -16,7 +16,11 @@ const useFilteredGames = (games, searchField) => {
     removedBlankGames.forEach(game => {
       if (!assetHash[game["Mach #"]]) {
         assetHash[game["Mach #"]] = 1;
-        gamesWithoutDuplicates.push(game);
+
+        gamesWithoutDuplicates.push({
+          ...game,
+          "Long Name": game["Long Name"].toLowerCase()
+        });
       }
     });
 
