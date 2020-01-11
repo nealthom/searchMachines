@@ -32,19 +32,19 @@ const useFilteredGames = (games, searchField) => {
         foundHash[game["Mach #"]] = 1;
         finalSetOfGames.push(game);
       }
-      searchField
-        .toLowerCase()
-        .split(" ")
-        .forEach(item => {
-          const hasit = game["Long Name"].split(" ").includes(item);
-          console.log(hasit);
-          if (hasit) {
-            if (!foundHash[game["Mach #"]]) {
-              foundHash[game["Mach #"]] = 1;
-              finalSetOfGames.push(game);
-            }
-          }
-        });
+      // searchField
+      //   .toLowerCase()
+      //   .split(" ")
+      //   .forEach(item => {
+      //     const hasit = game["Long Name"].split(" ").includes(item);
+      //     // console.log(hasit);
+      //     if (hasit) {
+      //       if (!foundHash[game["Mach #"]]) {
+      //         foundHash[game["Mach #"]] = 1;
+      //         finalSetOfGames.push(game);
+      //       }
+      //     }
+      //   });
     });
     // console.log(foundHash);
     setFilteredGames(finalSetOfGames);

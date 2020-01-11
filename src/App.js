@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Search</h1>
+      <h1>Machine Search</h1>
       <MenuBar setGames={setGames} setSearchField={setSearchField} />
       <CardList games={filteredGames} />
     </div>

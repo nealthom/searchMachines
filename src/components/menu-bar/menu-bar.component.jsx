@@ -2,6 +2,8 @@ import React from "react";
 import ReactFileReader from "react-file-reader";
 import Papa from "papaparse";
 
+import "./menu-bar.styles.css";
+
 import SearchBox from "../search-box/search-box.component";
 // update Styling
 const MenuBar = ({ setGames, setSearchField }) => {
@@ -18,10 +20,10 @@ const MenuBar = ({ setGames, setSearchField }) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <SearchBox onSearchChange={onSearchChange} />
       <ReactFileReader handleFiles={handleFiles} fileTypes={".csv"}>
-        <button>Upload New List</button>
+        <button className="btn-class">Upload New List</button>
       </ReactFileReader>
     </div>
   );
