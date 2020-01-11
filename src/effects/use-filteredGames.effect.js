@@ -19,7 +19,7 @@ const useFilteredGames = (games, searchField) => {
 
         gamesWithoutDuplicates.push({
           ...game,
-          "Long Name": game["Long Name"].toLowerCase()
+          "Long Name": game["Long Name"].toUpperCase()
         });
       }
     });
